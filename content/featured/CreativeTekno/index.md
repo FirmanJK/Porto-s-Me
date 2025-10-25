@@ -3,13 +3,13 @@ date: '2'
 title: 'Creative Tekno Persada'
 cover: './creativetekno.png'
 github: ''
-external: 'https://creativeteknopersada.com'
+external: 'https://creativeteknopersada.store'
 cta: ''
 tech:
-  - WordPress
+  - Laravel
   - PHP
   - MySQL
-  - WooCommerce
+  - Bootstrap
   - Elementor
 ---
 
