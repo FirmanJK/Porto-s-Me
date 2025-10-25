@@ -17,6 +17,39 @@ const StyledHeroSection = styled.section`
     padding-top: var(--nav-height);
   }
 
+  .greeting-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 0 30px 4px;
+    gap: 600px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 15px;
+      margin: 0 0 20px 2px;
+    }
+  }
+
+  .bismillah {
+    color: var(--slate);
+    font-family: 'Traditional Arabic', 'Scheherazade', serif;
+    font-size: clamp(30px, 1.5vw, 18px);
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    text-align: right;
+    margin-right: 20px;
+    flex-shrink: 0;
+    white-space: nowrap;
+
+    @media (max-width: 768px) {
+      font-size: clamp(12px, 3vw, 16px);
+      margin-right: 0;
+    }
+  }
+
   h1 {
     margin: 0 0 30px 4px;
     color: var(--green);
@@ -63,7 +96,13 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [prefersReducedMotion]);
 
-  const one = <h1>Hi, my name is</h1>;
+  const one = (
+    <div className="greeting-container">
+      <h1 style={{ transitionDelay: '100ms' }}>Hi, my name is</h1>
+      <span className="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+    </div>
+  );
+
   const two = <h2 className="big-heading">Dwi Septa Satria Agung.</h2>;
   const three = <h3 className="big-heading">I build back-end solutions for the web.</h3>;
   const four = (
