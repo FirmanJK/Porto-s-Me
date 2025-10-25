@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
-import { usePrefersReducedMotion } from '@hooks';
+import { usePrefersReducedMotion } from '@hooks/index';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -17,8 +17,11 @@ const StyledAboutSection = styled.section`
       display: block;
     }
   }
-`;
-const StyledText = styled.div`
+
+  p {
+    margin: 0 0 15px 0;
+  }
+
   ul.skills-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 200px));
@@ -45,70 +48,72 @@ const StyledText = styled.div`
       }
     }
   }
-`;
-const StyledPic = styled.div`
-  position: relative;
-  max-width: 300px;
 
-  @media (max-width: 768px) {
-    margin: 50px auto 0;
-    width: 70%;
-  }
-
-  .wrapper {
-    ${({ theme }) => theme.mixins.boxShadow};
-    display: block;
+  .styled-pic {
     position: relative;
-    width: 100%;
-    border-radius: var(--border-radius);
-    background-color: var(--green);
+    max-width: 300px;
 
-    &:hover,
-    &:focus {
-      outline: 0;
-      transform: translate(-4px, -4px);
+    @media (max-width: 768px) {
+      margin: 50px auto 0;
+      width: 70%;
+    }
 
-      &:after {
-        transform: translate(8px, 8px);
+    .wrapper {
+      ${({ theme }) => theme.mixins.boxShadow};
+      display: block;
+      position: relative;
+      width: 100%;
+      border-radius: var(--border-radius);
+      background-color: var(--green);
+
+      &:hover,
+      &:focus {
+        background: transparent;
+        outline: 0;
+
+        &:after {
+          top: 15px;
+          left: 15px;
+        }
+
+        .img {
+          filter: none;
+          mix-blend-mode: normal;
+        }
       }
 
       .img {
-        filter: none;
-        mix-blend-mode: normal;
+        position: relative;
+        border-radius: var(--border-radius);
+        mix-blend-mode: multiply;
+        filter: grayscale(100%) contrast(1);
+        transition: var(--transition);
       }
-    }
 
-    .img {
-      position: relative;
-      border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
-      transition: var(--transition);
-    }
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
 
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
-    }
+      &:before {
+        top: 0;
+        left: 0;
+        background-color: var(--navy);
+        mix-blend-mode: screen;
+      }
 
-    &:before {
-      top: 0;
-      left: 0;
-      background-color: var(--navy);
-      mix-blend-mode: screen;
-    }
-
-    &:after {
-      border: 2px solid var(--green);
-      top: 14px;
-      left: 14px;
-      z-index: -1;
+      &:after {
+        border: 2px solid var(--green);
+        top: 20px;
+        left: 20px;
+        z-index: -1;
+      }
     }
   }
 `;
@@ -121,66 +126,58 @@ const About = () => {
     if (prefersReducedMotion) {
       return;
     }
-
     sr.reveal(revealContainer.current, srConfig());
-  }, []);
+  }, [prefersReducedMotion]);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = [
+    'Laravel',
+    'PHP',
+    'React',
+    'JavaScript',
+    'Python',
+    'MySQL (SQL)',
+    'Git',
+    'Bootstrap',
+    'Google Cloud API',
+    'Figma',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
       <h2 className="numbered-heading">About Me</h2>
 
       <div className="inner">
-        <StyledText>
-          <div>
-            <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
-            </p>
-
-            <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
-            </p>
-
-            <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
-            </p>
-
-            <p>Here are a few technologies I’ve been working with recently:</p>
-          </div>
-
+        <div>
+          <p>
+            Hello! My name is Septa, and I specialize in building robust back-end systems for web
+            applications. My interest in technology started with a passion for solving business
+            process problems, which led me to focus on back-end development and system analysis at
+            the State Polytechnic of Malang.
+          </p>
+          <p>
+            Today, I leverage my experience as a freelancer to translate complex business needs into
+            efficient, scalable, and secure technical solutions. I am driven by the challenge of
+            optimizing systems and delivering technology that provides a clear return on investment,
+            such as improving data efficiency by 70% for over 45,000 users in one of my projects.
+          </p>
+          <p>Here are a few of the core technologies I work with:</p>
           <ul className="skills-list">
             {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
           </ul>
-        </StyledText>
+        </div>
 
-        <StyledPic>
+        <div className="styled-pic">
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="../../images/me.jpg"
+              src="../../images/me.png"
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
               alt="Headshot"
             />
           </div>
-        </StyledPic>
+        </div>
       </div>
     </StyledAboutSection>
   );

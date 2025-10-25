@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { srConfig, email } from '@config';
 import sr from '@utils/sr';
-import { usePrefersReducedMotion } from '@hooks';
+import { usePrefersReducedMotion } from '@hooks/index';
 
 const StyledContactSection = styled.section`
   max-width: 600px;
@@ -49,21 +49,18 @@ const Contact = () => {
     if (prefersReducedMotion) {
       return;
     }
-
     sr.reveal(revealContainer.current, srConfig());
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
       <h2 className="numbered-heading overline">What’s Next?</h2>
-
       <h2 className="title">Get In Touch</h2>
-
       <p>
-        Although I’m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+        I'm currently seeking internship opportunities and am open to new freelance projects.
+        Whether you have a question or just want to connect, feel free to reach out and I’ll get
+        back to you!
       </p>
-
       <a className="email-link" href={`mailto:${email}`}>
         Say Hello
       </a>

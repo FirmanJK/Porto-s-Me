@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D Logo Preview</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a192f;
+      color: #ccd6f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .container {
+      background: #112240;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    h1 {
+      color: #64ffda;
+      margin-bottom: 30px;
+    }
+    
+    .logo-preview {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .logo-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .dark-bg {
+      background: #0a192f;
+      padding: 20px;
+      border-radius: 4px;
+    }
+    
+    .light-bg {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 4px;
+    }
+    
+    .instructions {
+      max-width: 800px;
+      background: #112240;
+      padding: 30px;
+      border-radius: 8px;
+      line-height: 1.8;
+    }
+    
+    .instructions h2 {
+      color: #64ffda;
+      margin-top: 0;
+    }
+    
+    .instructions ol {
+      padding-left: 20px;
+    }
+    
+    .instructions li {
+      margin-bottom: 15px;
+    }
+    
+    .instructions a {
+      color: #64ffda;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    
+    .instructions a:hover {
+      border-bottom-color: #64ffda;
+    }
+    
+    code {
+      background: #0a192f;
+      padding: 2px 8px;
+      border-radius: 3px;
+      color: #64ffda;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>D Logo Preview</h1>
+    <div class="logo-preview">
+      <div class="logo-item">
+        <div class="dark-bg">
+          <img src="logo-d.svg" alt="D Logo" width="84" height="96">
+        </div>
+        <span>Dark Background</span>
+      </div>
+      
+      <div class="logo-item">
+        <div class="light-bg">
+          <img src="logo-d.svg" alt="D Logo" width="84" height="96">
+        </div>
+        <span>Light Background</span>
+      </div>
+      
+      <div class="logo-item">
+        <div class="dark-bg">
+          <img src="logo-d.svg" alt="D Logo" width="168" height="192">
+        </div>
+        <span>2x Size</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="instructions">
+    <h2>📋 Langkah-langkah Convert SVG ke PNG:</h2>
+    <ol>
+      <li>
+        Buka file <code>logo-d.svg</code> di browser atau editor SVG untuk melihat preview
+      </li>
+      <li>
+        Buka salah satu website converter online:
+        <ul>
+          <li><a href="https://svgtopng.com/" target="_blank">https://svgtopng.com/</a> (Recommended)</li>
+          <li><a href="https://cloudconvert.com/svg-to-png" target="_blank">https://cloudconvert.com/svg-to-png</a></li>
+          <li><a href="https://convertio.co/svg-png/" target="_blank">https://convertio.co/svg-png/</a></li>
+        </ul>
+      </li>
+      <li>
+        Upload file <code>logo-d.svg</code>
+      </li>
+      <li>
+        Convert dalam berbagai ukuran yang diperlukan:
+        <ul>
+          <li><code>logo.png</code> - 512x512px (untuk Gatsby manifest)</li>
+          <li><code>favicon-16x16.png</code></li>
+          <li><code>favicon-32x32.png</code></li>
+          <li><code>favicon-96x96.png</code></li>
+          <li><code>android-icon-*</code> (berbagai ukuran)</li>
+          <li><code>apple-icon-*</code> (berbagai ukuran)</li>
+          <li><code>ms-icon-*</code> (berbagai ukuran)</li>
+        </ul>
+      </li>
+      <li>
+        Replace semua file di folder:
+        <ul>
+          <li><code>src/images/logo.png</code></li>
+          <li><code>src/images/favicons/</code> (semua file favicon)</li>
+        </ul>
+      </li>
+      <li>
+        Jalankan <code>gatsby clean</code> dan <code>gatsby develop</code> untuk melihat hasilnya
+      </li>
+    </ol>
+    
+    <h2>🎨 Atau gunakan Figma/Canva:</h2>
+    <ol>
+      <li>Import <code>logo-d.svg</code> ke Figma atau Canva</li>
+      <li>Export dalam berbagai ukuran yang diperlukan</li>
+      <li>Replace file-file yang ada</li>
+    </ol>
+    
+    <h2>💡 Tips:</h2>
+    <ul>
+      <li>Untuk <code>favicon.ico</code>, gunakan <a href="https://favicon.io/" target="_blank">https://favicon.io/</a> untuk convert PNG ke ICO</li>
+      <li>Pastikan semua ukuran memiliki resolusi yang tajam</li>
+      <li>Background harus transparent untuk logo utama</li>
+    </ul>
+  </div>
+</body>
+</html>

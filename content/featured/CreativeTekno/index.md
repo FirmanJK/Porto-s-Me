@@ -4,6 +4,7 @@ title: 'Creative Tekno Persada'
 cover: './creativetekno.png'
 github: ''
 external: 'https://creativeteknopersada.com'
+cta: ''
 tech:
   - WordPress
   - PHP

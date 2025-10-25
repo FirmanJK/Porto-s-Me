@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
-import { navDelay, loaderDelay } from '@utils';
-import { usePrefersReducedMotion } from '@hooks';
+import { navDelay, loaderDelay } from '@utils/index';
+import { usePrefersReducedMotion } from '@hooks/index';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -29,10 +29,15 @@ const StyledHeroSection = styled.section`
     }
   }
 
-  h3 {
-    margin-top: 5px;
+  h2 {
+    margin-top: 10px;
     color: var(--slate);
     line-height: 0.9;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: clamp(40px, 8vw, 80px);
   }
 
   p {
@@ -54,34 +59,23 @@ const Hero = () => {
     if (prefersReducedMotion) {
       return;
     }
-
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [prefersReducedMotion]);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Brittany Chiang.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const two = <h2 className="big-heading">Dwi Septa Satria Agung.</h2>;
+  const three = <h3 className="big-heading">I build back-end solutions for the web.</h3>;
   const four = (
-    <>
-      <p>
-        I’m a software engineer specializing in building (and occasionally designing) exceptional
-        digital experiences. Currently, I’m focused on building accessible, human-centered products
-        at{' '}
-        <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
-          Upstatement
-        </a>
-        .
-      </p>
-    </>
+    <p>
+      I'm a Business Information Systems student specializing in back-end development and system
+      analysis. As an experienced freelancer, I build and optimize efficient, high-impact web
+      applications that solve real-world business problems.
+    </p>
   );
   const five = (
-    <a
-      className="email-link"
-      href="https://www.newline.co/courses/build-a-spotify-connected-app"
-      target="_blank"
-      rel="noreferrer">
-      Check out my course!
+    <a href="#contact" className="email-link">
+      Get In Touch
     </a>
   );
 

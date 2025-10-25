@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="96"><svg width="84" height="96" viewBox="0 0 84 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon shape -->
+  <g id="SvgjsG1012">
+    <path d="M42 2L79.426 24V72L42 94L4.574 72V24L42 2Z" stroke="#64FFDA" stroke-width="2" fill="none"></path>
+  </g>
+  
+  <!-- Letter D -->
+  <g id="SvgjsG1011">
+    <path d="M 28 31 L 28 65 L 42 65 C 50.8 65 56 59.8 56 51 L 56 45 C 56 36.2 50.8 31 42 31 Z M 33.5 36.5 L 42 36.5 C 47.5 36.5 50.5 39.5 50.5 45 L 50.5 51 C 50.5 56.5 47.5 60.5 42 60.5 L 33.5 60.5 Z" fill="#64FFDA"></path>
+  </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: contrast(1) brightness(0.7); } }
+@media (prefers-color-scheme: dark) { :root { filter: contrast(1) brightness(1); } }
+</style></svg>

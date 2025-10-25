@@ -1,11 +1,11 @@
 {
-  "name": "v4",
-  "description": "Personal Website V4",
+  "name": "portfolio-v5",
+  "description": "Personal Website V5",
   "version": "1.0.0",
-  "author": "Brittany Chiang <brittany.chiang@gmail.com>",
+  "author": "Dwi Septa Satria Agung <septasatria20@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bchiang7/v4"
+    "url": "https://github.com/septasatria20/porto_v5"
   },
   "keywords": [
     "gatsby"
@@ -29,6 +29,9 @@
     "*.js": [
       "eslint --fix"
     ]
+  },
+  "resolutions": {
+    "graphql": "^15.8.0"
   },
   "dependencies": {
     "animejs": "^3.1.0",

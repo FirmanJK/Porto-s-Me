@@ -4,6 +4,7 @@ title: 'JTI Tracer Study'
 cover: './jti-tracer.png'
 external: 'https://tracerstudy.jti.polinema.ac.id'
 github: ''
+cta: ''
 tech:
   - Laravel
   - PHP

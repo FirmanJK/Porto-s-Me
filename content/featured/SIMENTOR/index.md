@@ -4,6 +4,7 @@ title: 'SIMENTOR'
 cover: './simentor.png'
 github: ''
 external: 'https://simentorpolinema.com'
+cta: ''
 tech:
   - Laravel
   - PHP
