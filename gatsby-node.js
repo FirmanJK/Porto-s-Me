@@ -7,6 +7,19 @@
 const path = require('path');
 const _ = require('lodash');
 
+// Make logo field optional for organizations
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type MarkdownRemarkFrontmatter {
+      logo: File @fileByRelativePath
+      cover: File @fileByRelativePath
+      gallery: [File] @fileByRelativePath
+    }
+  `);
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve(`src/templates/post.js`);

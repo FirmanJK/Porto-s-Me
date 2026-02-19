@@ -104,7 +104,7 @@ const Hero = () => {
   );
 
   const two = <h2 className="big-heading">Dwi Septa Satria Agung.</h2>;
-  const three = <h3 className="big-heading">I build full-stack solutions for the web.</h3>;
+  const three = <h3 className="big-heading">I build full-stack solutions for website.</h3>;
   const four = (
     <p>
       I'm a Business Information Systems student at Politeknik Negeri Malang, specializing in

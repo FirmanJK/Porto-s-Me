@@ -17,12 +17,14 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: ${props => (props.scrolledToTop ? 'transparent' : 'rgba(10, 25, 47, 0.95)')};
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
+  backdrop-filter: ${props => (props.scrolledToTop ? 'none' : 'blur(10px)')};
+  box-shadow: ${props => (props.scrolledToTop ? 'none' : '0 10px 30px -10px var(--navy-shadow)')};
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation: slideDown 0.5s ease-out;
 
   @media (max-width: 1080px) {
     padding: 0 40px;
@@ -31,14 +33,25 @@ const StyledHeader = styled.header`
     padding: 0 25px;
   }
 
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     ${props =>
     props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
-        transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
+        transform: translateY(0px) scale(1);
+        background-color: rgba(10, 25, 47, 0.98);
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
@@ -48,7 +61,7 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        box-shadow: none;
       `};
   }
 `;
@@ -131,6 +144,30 @@ const StyledLinks = styled.div`
 
       a {
         padding: 10px;
+        position: relative;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background-color: var(--green);
+          transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transform: translateX(-50%);
+        }
+
+        &:hover,
+        &:focus {
+          color: var(--green);
+          transform: translateY(-3px);
+
+          &:after {
+            width: 100%;
+          }
+        }
 
         &:before {
           content: '0' counter(item) '.';
@@ -138,6 +175,7 @@ const StyledLinks = styled.div`
           color: var(--green);
           font-size: var(--fz-xxs);
           text-align: right;
+          transition: all 0.25s;
         }
       }
     }
@@ -147,6 +185,12 @@ const StyledLinks = styled.div`
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
     font-size: var(--fz-xs);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -10px var(--green-tint);
+    }
   }
 `;
 

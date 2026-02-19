@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -152,6 +153,55 @@ const StyledTabPanel = styled.div`
     ${({ theme }) => theme.mixins.fancyList};
   }
 
+  .org-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .org-logo {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--lightest-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    }
+
+    .gatsby-image-wrapper {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .org-info {
+    flex: 1;
+  }
+
   h3 {
     margin-bottom: 2px;
     font-size: var(--fz-xxl);
@@ -164,10 +214,72 @@ const StyledTabPanel = styled.div`
   }
 
   .range {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     color: var(--light-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
+  }
+
+  .org-gallery {
+    margin-top: 25px;
+
+    h4 {
+      color: var(--light-slate);
+      font-size: var(--fz-md);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+
+      @media (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+      transition: var(--transition);
+      background-color: var(--lightest-navy);
+
+      .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--navy);
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px -15px var(--navy-shadow);
+
+        &:after {
+          opacity: 0.3;
+        }
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
   }
 `;
 
@@ -186,6 +298,16 @@ const Organizations = () => {
               location
               range
               url
+              logo {
+                childImageSharp {
+                  gatsbyImageData(width: 80, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
+              gallery {
+                childImageSharp {
+                  gatsbyImageData(width: 300, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
             }
             html
           }
@@ -280,7 +402,11 @@ const Organizations = () => {
           {organizationsData &&
             organizationsData.map(({ node }, i) => {
               const { frontmatter, html } = node;
-              const { title, url, company, range } = frontmatter;
+              const { title, url, company, range, logo, gallery } = frontmatter;
+              const logoImage = logo ? getImage(logo) : null;
+              const galleryImages = gallery
+                ? gallery.map(img => getImage(img)).filter(Boolean)
+                : [];
 
               return (
                 <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
@@ -291,23 +417,45 @@ const Organizations = () => {
                     aria-labelledby={`tab-${i}`}
                     aria-hidden={activeTabId !== i}
                     hidden={activeTabId !== i}>
-                    <h3>
-                      <span>{title}</span>
-                      <span className="company">
-                        &nbsp;@&nbsp;
-                        {url ? (
-                          <a href={url} className="inline-link">
-                            {company}
-                          </a>
-                        ) : (
-                          <span>{company}</span>
-                        )}
-                      </span>
-                    </h3>
+                    <div className="org-header">
+                      {logoImage && (
+                        <div className="org-logo">
+                          <GatsbyImage image={logoImage} alt={`${company} logo`} />
+                        </div>
+                      )}
+                      <div className="org-info">
+                        <h3>
+                          <span>{title}</span>
+                          <span className="company">
+                            &nbsp;@&nbsp;
+                            {url ? (
+                              <a href={url} className="inline-link">
+                                {company}
+                              </a>
+                            ) : (
+                              <span>{company}</span>
+                            )}
+                          </span>
+                        </h3>
 
-                    <p className="range">{range}</p>
+                        <p className="range">{range}</p>
+                      </div>
+                    </div>
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />
+
+                    {galleryImages.length > 0 && (
+                      <div className="org-gallery">
+                        <h4>📸 Gallery & Documentation</h4>
+                        <div className="gallery-grid">
+                          {galleryImages.map((image, idx) => (
+                            <div key={idx} className="gallery-item">
+                              <GatsbyImage image={image} alt={`${company} activity ${idx + 1}`} />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </StyledTabPanel>
                 </CSSTransition>
               );

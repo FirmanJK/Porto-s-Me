@@ -5,6 +5,12 @@ company: 'Politeknik Negeri Malang'
 location: 'Kota Malang'
 range: 'January 2024 - January 2026'
 url: ''
+logo: './polinema-logo.png'
+gallery:
+  - './gallery-1.jpg'
+  - './gallery-2.jpg'
+  - './gallery-3.jpg'
+  - './gallery-4.jpg'
 ---
 
 - Supervised and directed mandatory mentoring work programs for all new students, scheduling, and coordinating mentors with approximately 30,000 students
