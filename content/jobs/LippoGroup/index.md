@@ -1,12 +1,12 @@
 ---
 date: '2025-10-01'
-title: 'Fullstack Web Developer (Freelance)'
-company: 'Lippo Group (Matos)'
+title: 'Full Stack Web Developer'
+company: 'Lippo Group Malang Town Square (Matos)'
 location: 'Malang, Indonesia'
-range: 'October 2025 - December 2025'
+range: 'October 2025 - January 2026'
 url: ''
 ---
 
-- Successfully initiated, designed, and implemented a complete digital correspondence and archive system, replacing a manual, paper-based process
-- Built the system using Laravel, Bootstrap, MySQL, and Google Cloud APIs
-- Significantly reduced document loss and accelerated archive retrieval times for the Marketing & Communications department
+- Successfully initiated, designed, and implemented a complete digital correspondence and archive system that was previously still in the form of physical documents in the Marketing & Communications Department of Malang Town Square using Laravel, Bootstrap, API Google Cloud, and MySQL
+- Built automated features for invoice numbering as needed and according to actual requirements, including automatic calendar-based expiration management for large invoices
+- Created a budgeting feature for large invoices with expense monitoring and automated expense management as per actual invoice amounts

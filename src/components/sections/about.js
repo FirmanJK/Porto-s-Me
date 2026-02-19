@@ -37,6 +37,12 @@ const StyledAboutSection = styled.section`
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--green);
+        transform: translateX(5px);
+      }
 
       &:before {
         content: '▹';
@@ -49,9 +55,20 @@ const StyledAboutSection = styled.section`
     }
   }
 
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
   .styled-pic {
     position: relative;
     max-width: 300px;
+    animation: float 3s ease-in-out infinite;
 
     @media (max-width: 768px) {
       margin: 50px auto 0;
@@ -135,11 +152,13 @@ const About = () => {
     'React',
     'JavaScript',
     'Python',
-    'MySQL (SQL)',
-    'Git',
+    'Node.js',
+    'MySQL',
     'Bootstrap',
-    'Google Cloud API',
+    'Google Cloud Platform',
+    'Git & GitLab',
     'Figma',
+    'Power BI',
   ];
 
   return (
@@ -149,16 +168,17 @@ const About = () => {
       <div className="inner">
         <div>
           <p>
-            Hello! My name is Septa, and I specialize in building robust back-end systems for web
-            applications. My interest in technology started with a passion for solving business
-            process problems, which led me to focus on back-end development and system analysis at
-            the State Polytechnic of Malang.
+            Hello! My name is Septa, and I specialize in building robust full-stack web applications
+            with a focus on back-end development and business process optimization. Currently
+            pursuing my D4 in Business Information Systems at Politeknik Negeri Malang, I've been
+            actively working as a freelancer and IT Project Delivery Lead.
           </p>
           <p>
-            Today, I leverage my experience as a freelancer to translate complex business needs into
-            efficient, scalable, and secure technical solutions. I am driven by the challenge of
-            optimizing systems and delivering technology that provides a clear return on investment,
-            such as improving data efficiency by 70% for over 45,000 users in one of my projects.
+            I've had the privilege of working with organizations like Politeknik Negeri Malang,
+            Lippo Group, Creative Tekno Persada, and PT Multi Spunindo Jaya Tbk. My work focuses on
+            translating complex business needs into efficient technical solutions—from improving
+            data efficiency by 70% for 45,000+ users to building end-to-end digital transformation
+            systems.
           </p>
           <p>Here are a few of the core technologies I work with:</p>
           <ul className="skills-list">

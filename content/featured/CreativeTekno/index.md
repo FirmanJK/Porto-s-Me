@@ -4,13 +4,14 @@ title: 'Creative Tekno Persada'
 cover: './creativetekno.png'
 github: ''
 external: 'https://creativeteknopersada.store'
-cta: ''
+cta: 'View Live Site'
 tech:
   - Laravel
   - PHP
   - MySQL
   - Bootstrap
+  - WordPress
   - Elementor
 ---
 
-A company profile website for Creative Tekno Persada, a provider of website development, hosting, domain, and digital marketing solutions. This website showcases the portfolio, services offered, and an integrated online ordering system to make it easier for clients to order services.
+A professional company profile website for Creative Tekno Persada, a leading provider of comprehensive digital solutions including website development, hosting services, domain management, and digital marketing strategies. This platform showcases an extensive portfolio of completed projects, detailed service offerings, and features an integrated online ordering system that streamlines the client acquisition process. The website combines WordPress flexibility with Laravel backend power to deliver exceptional user experience and efficient service management.

@@ -160,6 +160,12 @@ const StyledProject = styled.li`
     background-color: var(--light-navy);
     color: var(--light-slate);
     font-size: var(--fz-lg);
+    transition: var(--transition);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+    }
 
     @media (max-width: 768px) {
       padding: 20px 0;
@@ -167,6 +173,7 @@ const StyledProject = styled.li`
       box-shadow: none;
 
       &:hover {
+        transform: none;
         box-shadow: none;
       }
     }
@@ -246,11 +253,16 @@ const StyledProject = styled.li`
     grid-row: 1 / -1;
     position: relative;
     z-index: 1;
+    transition: var(--transition);
 
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
       opacity: 0.25;
+    }
+
+    &:hover {
+      transform: scale(1.02) translateY(-5px);
     }
 
     a {
@@ -292,6 +304,7 @@ const StyledProject = styled.li`
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
       filter: grayscale(100%) contrast(1) brightness(90%);
+      transition: var(--transition);
 
       @media (max-width: 768px) {
         object-fit: cover;

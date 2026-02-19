@@ -74,6 +74,10 @@ const StyledProject = styled.li`
     background-color: var(--light-navy);
     transition: var(--transition);
     overflow: auto;
+
+    &:hover {
+      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+    }
   }
 
   .project-top {

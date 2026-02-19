@@ -104,12 +104,13 @@ const Hero = () => {
   );
 
   const two = <h2 className="big-heading">Dwi Septa Satria Agung.</h2>;
-  const three = <h3 className="big-heading">I build back-end solutions for the web.</h3>;
+  const three = <h3 className="big-heading">I build full-stack solutions for the web.</h3>;
   const four = (
     <p>
-      I'm a Business Information Systems student specializing in back-end development and system
-      analysis. As an experienced freelancer, I build and optimize efficient, high-impact web
-      applications that solve real-world business problems.
+      I'm a Business Information Systems student at Politeknik Negeri Malang, specializing in
+      back-end and full-stack web development. As an active freelancer and IT Project Delivery Lead,
+      I build and optimize efficient, scalable web applications that solve real-world business
+      problems and deliver measurable impact.
     </p>
   );
   const five = (

@@ -35,9 +35,27 @@ const StyledContactSection = styled.section`
     font-size: clamp(40px, 5vw, 60px);
   }
 
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(100, 255, 218, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
+    }
+  }
+
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
+    animation: pulse 2s infinite;
+
+    &:hover {
+      animation: none;
+      transform: translateY(-3px);
+    }
   }
 `;
 
@@ -57,9 +75,10 @@ const Contact = () => {
       <h2 className="numbered-heading overline">What’s Next?</h2>
       <h2 className="title">Get In Touch</h2>
       <p>
-        I'm currently seeking internship opportunities and am open to new freelance projects.
-        Whether you have a question or just want to connect, feel free to reach out and I’ll get
-        back to you!
+        I'm actively seeking internship opportunities and always open to new freelance projects and
+        collaborations. Whether you need a full-stack developer for your next big project, want to
+        discuss business automation solutions, or just want to say hello, my inbox is always open.
+        Let's build something amazing together!
       </p>
       <a className="email-link" href={`mailto:${email}`}>
         Say Hello

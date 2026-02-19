@@ -80,6 +80,7 @@ const StyledTabButton = styled.button`
   font-size: var(--fz-xs);
   text-align: left;
   white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   @media (max-width: 768px) {
     padding: 0 15px 2px;
@@ -96,6 +97,12 @@ const StyledTabButton = styled.button`
   &:hover,
   &:focus {
     background-color: var(--light-navy);
+    color: var(--green);
+    transform: translateX(3px);
+
+    @media (max-width: 600px) {
+      transform: translateY(-3px);
+    }
   }
 `;
 

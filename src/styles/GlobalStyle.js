@@ -74,11 +74,25 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
+    background: linear-gradient(-45deg, var(--navy), #0a192f, #112240, #0a192f);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
     color: var(--slate);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
     line-height: 1.3;
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
     @media (max-width: 480px) {
       font-size: var(--fz-lg);

@@ -1,12 +1,11 @@
 ---
 date: '2025-08-01'
-title: 'Fullstack Web Developer (Freelance)'
+title: 'Full Stack Developer'
 company: 'Politeknik Negeri Malang'
 location: 'Malang, Indonesia'
 range: 'August 2025 - December 2025'
-url: ''
+url: 'https://simentorpolinema.com'
 ---
 
-- Implemented the 'Simentor Polinema' academic and information system to manage new and current student data
-- Utilized a tech stack of Laravel, Bootstrap, MySQL, and Google Cloud APIs
-- Achieved a 70% improvement in data management efficiency, serving approximately 45,000 users
+- Implemented the Academic & Information System website (Simentor Polinema) using Laravel, Bootstrap, API Google Cloud, and MySQL
+- Achieved remarkable success in improving efficiency of new and overall student data by approximately 70% with +-45,000 users at Politeknik Negeri Malang

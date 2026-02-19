@@ -1,16 +1,17 @@
 ---
 date: '3'
-title: 'JTI Tracer Study'
+title: 'JTI Tracer Study System'
 cover: './jti-tracer.png'
 external: 'https://tracerstudy.jti.polinema.ac.id'
 github: ''
-cta: ''
+cta: 'View Live Site'
 tech:
   - Laravel
   - PHP
   - MySQL
   - Chart.js
   - Bootstrap
+  - Data Analytics
 ---
 
-A Tracer Study System for the Department of Information Technology (JTI) at Politeknik Negeri Malang. This application is used to track alumni, collect data on graduate employment and careers, and analyze the alignment between taught competencies and industry needs. The system helps the department improve education quality based on feedback from alumni and stakeholders.
+A comprehensive Tracer Study System for the Department of Information Technology (JTI) at Politeknik Negeri Malang. This application tracks alumni careers, collects employment data, and analyzes the alignment between taught competencies and industry needs. The system provides valuable insights through data visualization using Chart.js, helping the department continuously improve education quality based on real feedback from alumni and industry stakeholders. Features include graduate tracking, employment statistics, competency gap analysis, and stakeholder feedback management.
