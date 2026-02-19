@@ -154,52 +154,7 @@ const StyledTabPanel = styled.div`
   }
 
   .org-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
     margin-bottom: 20px;
-
-    @media (max-width: 600px) {
-      flex-direction: column;
-      gap: 15px;
-    }
-  }
-
-  .org-logo {
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: var(--lightest-navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 30px -15px var(--navy-shadow);
-    }
-
-    .gatsby-image-wrapper {
-      width: 100%;
-      height: 100%;
-    }
-
-    img {
-      object-fit: contain;
-      padding: 10px;
-    }
-
-    @media (max-width: 600px) {
-      width: 60px;
-      height: 60px;
-    }
-  }
-
-  .org-info {
-    flex: 1;
   }
 
   h3 {
@@ -298,11 +253,6 @@ const Organizations = () => {
               location
               range
               url
-              logo {
-                childImageSharp {
-                  gatsbyImageData(width: 80, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-                }
-              }
               gallery {
                 childImageSharp {
                   gatsbyImageData(width: 300, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
@@ -402,8 +352,7 @@ const Organizations = () => {
           {organizationsData &&
             organizationsData.map(({ node }, i) => {
               const { frontmatter, html } = node;
-              const { title, url, company, range, logo, gallery } = frontmatter;
-              const logoImage = logo ? getImage(logo) : null;
+              const { title, url, company, range, gallery } = frontmatter;
               const galleryImages = gallery
                 ? gallery.map(img => getImage(img)).filter(Boolean)
                 : [];
@@ -418,28 +367,21 @@ const Organizations = () => {
                     aria-hidden={activeTabId !== i}
                     hidden={activeTabId !== i}>
                     <div className="org-header">
-                      {logoImage && (
-                        <div className="org-logo">
-                          <GatsbyImage image={logoImage} alt={`${company} logo`} />
-                        </div>
-                      )}
-                      <div className="org-info">
-                        <h3>
-                          <span>{title}</span>
-                          <span className="company">
-                            &nbsp;@&nbsp;
-                            {url ? (
-                              <a href={url} className="inline-link">
-                                {company}
-                              </a>
-                            ) : (
-                              <span>{company}</span>
-                            )}
-                          </span>
-                        </h3>
+                      <h3>
+                        <span>{title}</span>
+                        <span className="company">
+                          &nbsp;@&nbsp;
+                          {url ? (
+                            <a href={url} className="inline-link">
+                              {company}
+                            </a>
+                          ) : (
+                            <span>{company}</span>
+                          )}
+                        </span>
+                      </h3>
 
-                        <p className="range">{range}</p>
-                      </div>
+                      <p className="range">{range}</p>
                     </div>
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />

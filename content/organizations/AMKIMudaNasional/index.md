@@ -5,7 +5,6 @@ company: 'AMKI Muda Nasional'
 location: 'Nasional'
 range: 'January 2025 - February 2026'
 url: ''
-logo: './amki-nasional-logo.png'
 ---
 
 - Contributed to work programs representing the campus and AMKI Muda East Java in the AMKI Muda representation throughout Universities & Polytechnics throughout Indonesia

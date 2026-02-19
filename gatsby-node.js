@@ -7,13 +7,12 @@
 const path = require('path');
 const _ = require('lodash');
 
-// Make logo field optional for organizations
+// Make fields optional for organizations and projects
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   createTypes(`
     type MarkdownRemarkFrontmatter {
-      logo: File @fileByRelativePath
       cover: File @fileByRelativePath
       gallery: [File] @fileByRelativePath
     }
