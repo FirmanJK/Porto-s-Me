@@ -7,6 +7,7 @@ import { srConfig } from '@config';
 import { KEY_CODES } from '@utils';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+import Lightbox from '@components/lightbox';
 
 const StyledOrganizationsSection = styled.section`
   max-width: 700px;
@@ -202,33 +203,73 @@ const StyledTabPanel = styled.div`
       overflow: hidden;
       aspect-ratio: 1;
       cursor: pointer;
-      transition: var(--transition);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       background-color: var(--lightest-navy);
 
       .gatsby-image-wrapper {
         width: 100%;
         height: 100%;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       &:after {
+        content: '\\1F50D';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        background-color: rgba(100, 255, 218, 0.95);
+        border-radius: 50%;
+        color: var(--navy);
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      &:before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--navy);
+        background: linear-gradient(
+          135deg,
+          rgba(100, 255, 218, 0.2) 0%,
+          rgba(87, 203, 255, 0.2) 100%
+        );
         opacity: 0;
-        transition: var(--transition);
+        transition: opacity 0.3s ease;
+        z-index: 1;
       }
 
       &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 30px -15px var(--navy-shadow);
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px -15px rgba(100, 255, 218, 0.3);
+
+        .gatsby-image-wrapper {
+          transform: scale(1.1);
+        }
 
         &:after {
-          opacity: 0.3;
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
         }
+
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        transform: translateY(-4px) scale(0.98);
       }
 
       img {
@@ -255,7 +296,7 @@ const Organizations = () => {
               url
               gallery {
                 childImageSharp {
-                  gatsbyImageData(width: 300, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
             }
@@ -270,9 +311,24 @@ const Organizations = () => {
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImages, setLightboxImages] = useState([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxTitle, setLightboxTitle] = useState('');
   const tabs = useRef([]);
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  const openLightbox = (images, index, title) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
+    setLightboxTitle(title);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -391,7 +447,18 @@ const Organizations = () => {
                         <h4>📸 Gallery & Documentation</h4>
                         <div className="gallery-grid">
                           {galleryImages.map((image, idx) => (
-                            <div key={idx} className="gallery-item">
+                            <div
+                              key={idx}
+                              className="gallery-item"
+                              role="button"
+                              tabIndex={0}
+                              onClick={() =>
+                                openLightbox(galleryImages, idx, `${company} - ${title}`)
+                              }
+                              onKeyPress={e =>
+                                e.key === 'Enter' &&
+                                openLightbox(galleryImages, idx, `${company} - ${title}`)
+                              }>
                               <GatsbyImage image={image} alt={`${company} activity ${idx + 1}`} />
                             </div>
                           ))}
@@ -404,6 +471,14 @@ const Organizations = () => {
             })}
         </StyledTabPanels>
       </div>
+
+      <Lightbox
+        images={lightboxImages}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        title={lightboxTitle}
+      />
     </StyledOrganizationsSection>
   );
 };

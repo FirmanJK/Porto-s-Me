@@ -14,8 +14,14 @@ const variables = css`
     --white: #e6f1ff;
     --green: #64ffda;
     --green-tint: rgba(100, 255, 218, 0.1);
+    --green-bright: rgba(100, 255, 218, 0.8);
     --pink: #f57dff;
     --blue: #57cbff;
+    --orange: #ff9557;
+    --purple: #9d7fff;
+    --gradient-1: linear-gradient(135deg, #64ffda 0%, #57cbff 100%);
+    --gradient-2: linear-gradient(135deg, #f57dff 0%, #9d7fff 100%);
+    --gradient-3: linear-gradient(135deg, #ff9557 0%, #f57dff 100%);
 
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

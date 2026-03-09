@@ -226,6 +226,15 @@ const StyledProject = styled.li`
     a {
       ${({ theme }) => theme.mixins.flexCenter};
       padding: 10px;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      border-radius: 4px;
+      position: relative;
+
+      &:hover {
+        color: var(--green);
+        transform: translateY(-3px);
+        background-color: var(--light-navy);
+      }
 
       &.external {
         svg {
@@ -238,12 +247,30 @@ const StyledProject = styled.li`
       svg {
         width: 20px;
         height: 20px;
+        transition: var(--transition);
       }
     }
 
     .cta {
       ${({ theme }) => theme.mixins.smallButton};
       margin: 10px;
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+
+      &:hover {
+        animation: none;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px -10px var(--green-tint);
+      }
     }
   }
 
@@ -253,7 +280,7 @@ const StyledProject = styled.li`
     grid-row: 1 / -1;
     position: relative;
     z-index: 1;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     @media (max-width: 768px) {
       grid-column: 1 / -1;
@@ -262,7 +289,8 @@ const StyledProject = styled.li`
     }
 
     &:hover {
-      transform: scale(1.02) translateY(-5px);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px -15px var(--navy-shadow);
     }
 
     a {
@@ -271,6 +299,7 @@ const StyledProject = styled.li`
       background-color: var(--green);
       border-radius: var(--border-radius);
       vertical-align: middle;
+      overflow: hidden;
 
       &:hover,
       &:focus {
@@ -294,17 +323,22 @@ const StyledProject = styled.li`
         right: 0;
         bottom: 0;
         z-index: 3;
-        transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
+        transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        background: linear-gradient(
+          135deg,
+          rgba(100, 255, 218, 0.15) 0%,
+          rgba(87, 203, 255, 0.15) 50%,
+          rgba(245, 125, 255, 0.15) 100%
+        );
+        mix-blend-mode: multiply;
       }
     }
 
     .img {
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
-      transition: var(--transition);
+      filter: grayscale(80%) contrast(1) brightness(80%);
+      transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 
       @media (max-width: 768px) {
         object-fit: cover;

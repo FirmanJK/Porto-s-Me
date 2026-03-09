@@ -104,13 +104,21 @@ const Hero = () => {
   );
 
   const two = <h2 className="big-heading">Dwi Septa Satria Agung.</h2>;
-  const three = <h3 className="big-heading">I build full-stack solutions for website.</h3>;
+  const three = (
+    <h3 className="big-heading" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+      <span>Organizer</span>
+      <span style={{ color: 'var(--slate)' }}>&</span>
+      <span>Developer</span>
+    </h3>
+  );
   const four = (
     <p>
-      I'm a Business Information Systems student at Politeknik Negeri Malang, specializing in
+      I'm a <strong style={{ color: 'var(--green)' }}>Business Information Systems student</strong>{' '}
+      at Politeknik Negeri Malang and{' '}
+      <strong style={{ color: 'var(--green)' }}>experienced organizer</strong>, specializing in
       back-end and full-stack web development. As an active freelancer and IT Project Delivery Lead,
-      I build and optimize efficient, scalable web applications that solve real-world business
-      problems and deliver measurable impact.
+      I build scalable web applications while leading teams and coordinating large-scale programs
+      with 30,000+ participants.
     </p>
   );
   const five = (
