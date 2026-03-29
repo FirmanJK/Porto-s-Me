@@ -4,13 +4,13 @@
 
 ### 1. **Featured Projects Baru** (Some Things I've Built)
 
-#### **Lippo Archive System (Matos)**
+#### **Lippo Archive System ()**
 
-- **Link:** https://archivematos.com
+- **Link:** https://archive.com
 - **Lokasi:** `content/featured/LippoArchive/`
 - **Screenshot:** Tambahkan file `lippo-archive.png`
 - **Cara:**
-  1. Buka https://archivematos.com
+  1. Buka https://archive.com
   2. Ambil screenshot (Full page atau homepage hero section)
   3. Crop/resize ke 1200x800px (ratio 16:9)
   4. Simpan sebagai `lippo-archive.png`

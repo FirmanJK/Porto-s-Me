@@ -1,6 +1,6 @@
 ---
 date: '4'
-title: 'Lippo Archive System Malang Town Square (Matos)'
+title: 'Lippo Archive System Malang Town Square ( Mall)'
 cover: './lippo-archive.png'
 github: ''
 external: ''

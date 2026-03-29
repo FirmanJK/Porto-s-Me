@@ -1,7 +1,7 @@
 # PLACEHOLDER - Ganti dengan screenshot website Lippo Archive System
 
 Untuk menambahkan gambar:
-1. Ambil screenshot website archivematos.com
+1. Ambil screenshot website archive.com
 2. Simpan sebagai PNG atau JPG
 3. Rename menjadi: lippo-archive.png
 4. Letakkan file ini di folder yang sama dengan index.md
