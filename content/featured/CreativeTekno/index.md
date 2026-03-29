@@ -6,12 +6,13 @@ github: ''
 external: 'https://www.creativeteknopersada.com'
 cta: 'www.creativeteknopersada.com'
 tech:
-  - Laravel
-  - PHP
+  - Node.js
+  - Express.js
+  - JavaScript
   - MySQL
   - Bootstrap
   - WordPress
   - Elementor
 ---
 
-A professional company profile website for Creative Tekno Persada, a leading provider of comprehensive digital solutions including website development, hosting services, domain management, and digital marketing strategies. This platform showcases an extensive portfolio of completed projects, detailed service offerings, and features an integrated online ordering system that streamlines the client acquisition process. The website combines WordPress flexibility with Laravel backend power to deliver exceptional user experience and efficient service management.
+A professional company profile website for Creative Tekno Persada, a leading provider of comprehensive digital solutions including website development, hosting services, domain management, and digital marketing strategies. This platform showcases an extensive portfolio of completed projects, detailed service offerings, and features an integrated online ordering system that streamlines the client acquisition process. The website combines WordPress flexibility with a Node.js-based backend to deliver exceptional user experience and efficient service management.
