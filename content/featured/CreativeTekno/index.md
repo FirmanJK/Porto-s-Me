@@ -3,8 +3,8 @@ date: '2'
 title: 'Creative Tekno Persada'
 cover: './creativetekno.png'
 github: ''
-external: 'https://creativeteknopersada.store'
-cta: 'View Live Site'
+external: 'https://www.creativeteknopersada.com'
+cta: 'www.creativeteknopersada.com'
 tech:
   - Laravel
   - PHP

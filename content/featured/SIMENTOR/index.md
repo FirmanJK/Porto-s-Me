@@ -3,8 +3,8 @@ date: '1'
 title: 'SIMENTOR Polinema'
 cover: './simentor.png'
 github: ''
-external: 'https://simentorpolinema.com'
-cta: 'View Live Site'
+external: 'https://www.simentorpolinema.com'
+cta: 'www.simentorpolinema.com'
 tech:
   - Laravel
   - PHP

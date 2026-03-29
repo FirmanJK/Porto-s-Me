@@ -2,9 +2,9 @@
 date: '3'
 title: 'JTI Tracer Study System'
 cover: './jti-tracer.png'
-external: 'https://tracerstudy.jti.polinema.ac.id'
+external: ''
 github: ''
-cta: 'View Live Site'
+cta: ''
 tech:
   - Laravel
   - PHP

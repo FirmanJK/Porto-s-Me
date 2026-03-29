@@ -3,8 +3,8 @@ date: '5'
 title: 'UKM RISPOL Portfolio Website'
 cover: './rispol-portfolio.png'
 github: ''
-external: 'https://rohispolinema.com'
-cta: 'View Live Site'
+external: 'https://www.rohispolinema.com'
+cta: 'www.rohispolinema.com'
 tech:
   - PHP
   - CSS

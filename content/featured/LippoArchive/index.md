@@ -3,8 +3,8 @@ date: '4'
 title: 'Lippo Archive System Malang Town Square (Matos)'
 cover: './lippo-archive.png'
 github: ''
-external: 'https://archivematos.com'
-cta: 'View Live Site'
+external: ''
+cta: ''
 tech:
   - Laravel
   - PHP

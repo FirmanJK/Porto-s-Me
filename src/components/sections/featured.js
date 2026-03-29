@@ -404,6 +404,7 @@ const Featured = () => {
             const { frontmatter, html } = node;
             const { external, title, tech, github, cover, cta } = frontmatter;
             const image = getImage(cover);
+            const projectUrl = external || github;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -412,7 +413,7 @@ const Featured = () => {
                     <p className="project-overline">Featured Project</p>
 
                     <h3 className="project-title">
-                      <a href={external}>{title}</a>
+                      {projectUrl ? <a href={projectUrl}>{title}</a> : <span>{title}</span>}
                     </h3>
 
                     <div
@@ -429,9 +430,9 @@ const Featured = () => {
                     )}
 
                     <div className="project-links">
-                      {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
+                      {cta && projectUrl && (
+                        <a href={projectUrl} aria-label="Project Link" className="cta">
+                          {cta}
                         </a>
                       )}
                       {github && (
@@ -449,9 +450,13 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
+                  {projectUrl ? (
+                    <a href={projectUrl}>
+                      <GatsbyImage image={image} alt={title} className="img" />
+                    </a>
+                  ) : (
                     <GatsbyImage image={image} alt={title} className="img" />
-                  </a>
+                  )}
                 </div>
               </StyledProject>
             );
