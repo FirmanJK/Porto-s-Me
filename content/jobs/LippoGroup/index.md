@@ -1,7 +1,7 @@
 ---
 date: '2025-10-01'
 title: 'Full Stack Web Developer'
-company: 'Lippo Group Malang Town Square ( Mall)'
+company: 'Lippo Group Malang Town Square (Matos Mall)'
 location: 'Malang, Indonesia'
 range: 'October 2025 - January 2026'
 url: ''
