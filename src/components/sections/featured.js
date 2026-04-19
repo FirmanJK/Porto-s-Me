@@ -296,55 +296,23 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
+      background-color: transparent;
       border-radius: var(--border-radius);
       vertical-align: middle;
       overflow: hidden;
-
-      &:hover,
-      &:focus {
-        background: transparent;
-        outline: 0;
-
-        &:before,
-        .img {
-          background: transparent;
-          filter: none;
-        }
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 3;
-        transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-        background: linear-gradient(
-          135deg,
-          rgba(100, 255, 218, 0.15) 0%,
-          rgba(87, 203, 255, 0.15) 50%,
-          rgba(245, 125, 255, 0.15) 100%
-        );
-        mix-blend-mode: multiply;
-      }
     }
 
     .img {
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(80%) contrast(1) brightness(80%);
+      mix-blend-mode: normal;
+      filter: none;
       transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
+        filter: none;
       }
     }
   }
