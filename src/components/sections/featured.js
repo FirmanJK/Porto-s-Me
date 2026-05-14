@@ -113,6 +113,20 @@ const StyledProject = styled.li`
     @media (max-width: 480px) {
       padding: 30px 25px 20px;
     }
+
+    /* Enhanced readability for Internify and Sibeta on mobile */
+    &.large-project-mobile {
+      @media (max-width: 768px) {
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        padding: 35px 30px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 25px 20px;
+      }
+    }
   }
 
   .project-overline {
@@ -133,6 +147,9 @@ const StyledProject = styled.li`
 
     @media (max-width: 768px) {
       color: var(--white);
+      font-size: clamp(22px, 5vw, 26px);
+      margin: 0 0 15px;
+      font-weight: 600;
 
       a {
         position: static;
@@ -171,11 +188,19 @@ const StyledProject = styled.li`
       padding: 20px 0;
       background-color: transparent;
       box-shadow: none;
+      color: var(--lightest-slate);
+      font-size: var(--fz-md);
+      line-height: 1.6;
 
       &:hover {
         transform: none;
         box-shadow: none;
       }
+    }
+
+    @media (max-width: 480px) {
+      font-size: var(--fz-sm);
+      line-height: 1.7;
     }
 
     a {
@@ -211,6 +236,15 @@ const StyledProject = styled.li`
       li {
         margin: 0 10px 5px 0;
         color: var(--lightest-slate);
+        font-size: var(--fz-xs);
+        font-weight: 500;
+      }
+    }
+
+    @media (max-width: 480px) {
+      li {
+        font-size: 12px;
+        margin: 0 8px 5px 0;
       }
     }
   }
@@ -291,6 +325,21 @@ const StyledProject = styled.li`
       opacity: 0.25;
     }
 
+    /* Special styling for Internify and Sibeta on mobile */
+    &.large-image-mobile {
+      @media (max-width: 768px) {
+        opacity: 0.35;
+        height: auto;
+        min-height: 400px;
+        padding: 20px 0;
+      }
+
+      @media (max-width: 480px) {
+        min-height: 350px;
+        padding: 15px 0;
+      }
+    }
+
     &:hover {
       transform: translateY(-10px);
 
@@ -312,12 +361,38 @@ const StyledProject = styled.li`
         max-width: 100%;
         box-shadow: none;
       }
+
+      /* Larger images for Internify and Sibeta on mobile */
+      &.large-mobile {
+        @media (max-width: 768px) {
+          max-width: 90%;
+          margin: 0 auto;
+        }
+
+        @media (max-width: 480px) {
+          max-width: 95%;
+        }
+      }
     }
 
     .img {
       border-radius: var(--border-radius);
       transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
       width: 100%;
+      height: auto;
+      object-fit: contain;
+
+      /* Better visibility for large images on mobile */
+      &.large-mobile-img {
+        @media (max-width: 768px) {
+          object-fit: contain;
+          max-height: 400px;
+        }
+
+        @media (max-width: 480px) {
+          max-height: 350px;
+        }
+      }
       height: auto;
       display: block;
       object-fit: contain;
@@ -368,9 +443,9 @@ const Featured = () => {
     const smallProjects = ['Marketplace Jawara', 'Talent Hub', 'Pintara Kids'];
 
     if (title === 'Internify') {
-      return '800px';
+      return '700px'; // Reduced from 800px for better mobile display
     } else if (title === 'Sibeta') {
-      return '600px';
+      return '550px'; // Reduced from 600px for better mobile display
     } else if (smallProjects.includes(title)) {
       return '280px';
     }
@@ -382,15 +457,15 @@ const Featured = () => {
     // Internify - even (kiri), box di kiri, gambar di kanan
     if (title === 'Internify') {
       return {
-        maxWidth: '420px',
-        marginRight: '180px',
+        maxWidth: '450px',
+        marginRight: '150px',
       };
     }
     // Sibeta - odd (kanan), box di kanan, gambar di kiri
     if (title === 'Sibeta') {
       return {
-        maxWidth: '350px',
-        marginLeft: '180px',
+        maxWidth: '400px',
+        marginLeft: '150px',
       };
     }
     return {};
@@ -433,7 +508,10 @@ const Featured = () => {
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
-                <div className="project-content">
+                <div
+                  className={`project-content ${
+                    title === 'Internify' || title === 'Sibeta' ? 'large-project-mobile' : ''
+                  }`}>
                   <div style={getWrapperStyle(title, isOdd)}>
                     <p className="project-overline">Featured Project</p>
 
@@ -509,22 +587,56 @@ const Featured = () => {
                   </div>
                 </div>
 
-                <div className="project-image">
+                <div
+                  className={`project-image ${
+                    title === 'Internify' || title === 'Sibeta' ? 'large-image-mobile' : ''
+                  }`}>
                   {projectUrl ? (
-                    <a href={projectUrl} style={{ maxWidth: getImageSize(title) }}>
+                    <a
+                      href={projectUrl}
+                      style={{ maxWidth: getImageSize(title) }}
+                      className={title === 'Internify' || title === 'Sibeta' ? 'large-mobile' : ''}>
                       {isGif ? (
-                        <img src={cover.publicURL} alt={title} className="img" />
+                        <img
+                          src={cover.publicURL}
+                          alt={title}
+                          className={`img ${
+                            title === 'Internify' || title === 'Sibeta' ? 'large-mobile-img' : ''
+                          }`}
+                        />
                       ) : (
-                        <GatsbyImage image={image} alt={title} className="img" />
+                        <GatsbyImage
+                          image={image}
+                          alt={title}
+                          className={`img ${
+                            title === 'Internify' || title === 'Sibeta' ? 'large-mobile-img' : ''
+                          }`}
+                        />
                       )}
                     </a>
                   ) : isGif ? (
-                    <div style={{ maxWidth: getImageSize(title) }}>
-                      <img src={cover.publicURL} alt={title} className="img" />
+                    <div
+                      style={{ maxWidth: getImageSize(title) }}
+                      className={title === 'Internify' || title === 'Sibeta' ? 'large-mobile' : ''}>
+                      <img
+                        src={cover.publicURL}
+                        alt={title}
+                        className={`img ${
+                          title === 'Internify' || title === 'Sibeta' ? 'large-mobile-img' : ''
+                        }`}
+                      />
                     </div>
                   ) : (
-                    <div style={{ maxWidth: getImageSize(title) }}>
-                      <GatsbyImage image={image} alt={title} className="img" />
+                    <div
+                      style={{ maxWidth: getImageSize(title) }}
+                      className={title === 'Internify' || title === 'Sibeta' ? 'large-mobile' : ''}>
+                      <GatsbyImage
+                        image={image}
+                        alt={title}
+                        className={`img ${
+                          title === 'Internify' || title === 'Sibeta' ? 'large-mobile-img' : ''
+                        }`}
+                      />
                     </div>
                   )}
                 </div>

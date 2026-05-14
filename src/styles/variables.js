@@ -54,6 +54,33 @@ const variables = css`
     --ham-after-active: bottom 0.1s ease-out,
       transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
   }
+
+  /* Mobile-specific font size adjustments for better readability */
+  @media (max-width: 768px) {
+    :root {
+      --fz-xxs: 13px;
+      --fz-xs: 14px;
+      --fz-sm: 15px;
+      --fz-md: 17px;
+      --fz-lg: 19px;
+      --fz-xl: 21px;
+      --fz-xxl: 23px;
+      --fz-heading: 28px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    :root {
+      --fz-xxs: 12px;
+      --fz-xs: 13px;
+      --fz-sm: 14px;
+      --fz-md: 16px;
+      --fz-lg: 18px;
+      --fz-xl: 19px;
+      --fz-xxl: 20px;
+      --fz-heading: 26px;
+    }
+  }
 `;
 
 export default variables;

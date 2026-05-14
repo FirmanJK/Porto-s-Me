@@ -3,7 +3,7 @@ date: '2'
 title: 'Talent Hub'
 cover: './talenthub.png'
 github: 'https://github.com/Sadamdi/TalentHub'
-documentation: 'https://drive.google.com/file/d/18NBuXKYwr5nEIQJ2LWCskgguLd4oV4gY/view'
+documentation: 'https://drive.google.com/drive/folders/18CIXH4BVIMlq9FDSMLPbJGOCAwqUJn18?usp=drive_link'
 external: ''
 cta: ''
 tech:

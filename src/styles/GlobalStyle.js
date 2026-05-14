@@ -12,6 +12,15 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     width: 100%;
     scroll-behavior: smooth;
+    /* Improve text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent font scaling in landscape */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* Enable momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
   }
 
   *,
@@ -81,6 +90,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
     line-height: 1.3;
+    /* Improve touch scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent pull-to-refresh on mobile */
+    overscroll-behavior-y: contain;
 
     @keyframes gradientShift {
       0% {
@@ -96,6 +109,7 @@ const GlobalStyle = createGlobalStyle`
 
     @media (max-width: 480px) {
       font-size: var(--fz-lg);
+      line-height: 1.5;
     }
 
     &.hidden {
@@ -261,11 +275,24 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 100%;
     vertical-align: middle;
+    /* Improve image rendering on mobile */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 
   img[alt=""],
   img:not([alt]) {
     filter: blur(5px);
+  }
+
+  /* Lazy loading images */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  img[loading="lazy"].loaded {
+    opacity: 1;
   }
 
   svg {
@@ -286,6 +313,11 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     position: relative;
     transition: var(--transition);
+    /* Touch-friendly tap target size */
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
 
     &:hover,
     &:focus {
@@ -295,12 +327,20 @@ const GlobalStyle = createGlobalStyle`
     &.inline-link {
       ${({ theme }) => theme.mixins.inlineLink};
     }
+
+    /* Improve tap highlight for mobile */
+    -webkit-tap-highlight-color: rgba(16, 185, 129, 0.2);
   }
 
   button {
     cursor: pointer;
     border: 0;
     border-radius: 0;
+    /* Touch-friendly tap target size */
+    min-height: 44px;
+    min-width: 44px;
+    /* Improve tap highlight for mobile */
+    -webkit-tap-highlight-color: rgba(16, 185, 129, 0.2);
   }
 
   input, textarea {

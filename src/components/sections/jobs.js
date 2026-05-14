@@ -22,6 +22,19 @@ const StyledJobsSection = styled.section`
       min-height: 340px;
     }
   }
+
+  /* Improve heading visibility on mobile */
+  .numbered-heading {
+    @media (max-width: 768px) {
+      font-size: clamp(24px, 5vw, 28px);
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: clamp(22px, 5vw, 26px);
+      margin-bottom: 25px;
+    }
+  }
 `;
 
 const StyledTabList = styled.div`
@@ -35,24 +48,39 @@ const StyledTabList = styled.div`
   @media (max-width: 600px) {
     display: flex;
     overflow-x: auto;
-    width: calc(100% + 100px);
-    padding-left: 50px;
-    margin-left: -50px;
-    margin-bottom: 30px;
+    overflow-y: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 30px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--navy);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--dark-slate);
+      border-radius: 2px;
+    }
   }
+
   @media (max-width: 480px) {
-    width: calc(100% + 50px);
-    padding-left: 25px;
-    margin-left: -25px;
+    margin-bottom: 25px;
   }
 
   li {
+    @media (max-width: 600px) {
+      flex-shrink: 0;
+    }
+
     &:first-of-type {
       @media (max-width: 600px) {
-        margin-left: 50px;
-      }
-      @media (max-width: 480px) {
-        margin-left: 25px;
+        margin-left: 0;
       }
     }
     &:last-of-type {
@@ -84,14 +112,26 @@ const StyledTabButton = styled.button`
 
   @media (max-width: 768px) {
     padding: 0 15px 2px;
+    font-size: var(--fz-sm);
   }
   @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
-    min-width: 120px;
-    padding: 0 15px;
+    min-width: auto;
+    width: auto;
+    padding: 0 16px;
     border-left: 0;
     border-bottom: 2px solid var(--lightest-navy);
     text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    height: 44px;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 14px;
+    font-size: 11px;
+    height: 42px;
   }
 
   &:hover,
@@ -120,16 +160,7 @@ const StyledHighlight = styled.div`
   transition-delay: 0.1s;
 
   @media (max-width: 600px) {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    max-width: var(--tab-width);
-    height: 2px;
-    margin-left: 50px;
-    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
-  }
-  @media (max-width: 480px) {
-    margin-left: 25px;
+    display: none;
   }
 `;
 
@@ -148,8 +179,39 @@ const StyledTabPanel = styled.div`
   height: auto;
   padding: 10px 5px;
 
+  @media (max-width: 600px) {
+    padding: 0;
+  }
+
   ul {
     ${({ theme }) => theme.mixins.fancyList};
+
+    @media (max-width: 600px) {
+      font-size: var(--fz-md);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      font-size: var(--fz-sm);
+      line-height: 1.7;
+    }
+
+    li {
+      @media (max-width: 600px) {
+        margin-bottom: 12px;
+        padding-left: 28px;
+      }
+
+      @media (max-width: 480px) {
+        padding-left: 25px;
+      }
+
+      &:before {
+        @media (max-width: 600px) {
+          font-size: 16px;
+        }
+      }
+    }
   }
 
   h3 {
@@ -158,8 +220,25 @@ const StyledTabPanel = styled.div`
     font-weight: 500;
     line-height: 1.3;
 
+    @media (max-width: 600px) {
+      font-size: var(--fz-xl);
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--lightest-slate);
+    }
+
+    @media (max-width: 480px) {
+      font-size: var(--fz-lg);
+    }
+
     .company {
       color: var(--green);
+      font-weight: 600;
+
+      @media (max-width: 600px) {
+        display: block;
+        margin-top: 3px;
+      }
     }
   }
 
@@ -168,6 +247,17 @@ const StyledTabPanel = styled.div`
     color: var(--light-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
+
+    @media (max-width: 600px) {
+      font-size: var(--fz-sm);
+      color: var(--slate);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 13px;
+    }
   }
 `;
 
