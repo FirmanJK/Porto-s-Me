@@ -2,7 +2,7 @@
   <img alt="Logo" src="src/images/fj-logo.svg" width="100" />
 </div>
 <h1 align="center">
-  Firman Jotab - Developer & Data Engineer
+  Firman JK - Developer & Data Engineer
 </h1>
 <p align="center">
   Personal portfolio website of <a href="https://firmanjotab-repositories.github.io" target="_blank">Firman Jotab</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
