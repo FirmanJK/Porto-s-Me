@@ -1,27 +1,19 @@
 module.exports = {
-  email: 'septasatria.str@gmail.com',
+  email: 'jatikusuma76@gmail.com',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/septasatria20',
+      url: 'https://github.com/FirmanJK',
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/_septasatria',
+      url: 'https://www.instagram.com/dika__dik?igsh=NmMzM2M3MHNmbjZ6',
     },
-    // {
-    //   name: 'Twitter',
-    //   url: 'https://twitter.com/',
-    // },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/septasatria/',
+      url: 'https://www.linkedin.com/in/mochammad-firmandika-jati-kusuma-9ba1b724b/',
     },
-    // {
-    //   name: 'Codepen',
-    //   url: 'https://codepen.io/bchiang7',
-    // },
   ],
 
   navLinks: [
@@ -34,12 +26,12 @@ module.exports = {
       url: '/#jobs',
     },
     {
-      name: 'Organizations',
-      url: '/#organizations',
-    },
-    {
       name: 'Work',
       url: '/#projects',
+    },
+    {
+      name: 'Certifications',
+      url: '/#certifications',
     },
     {
       name: 'Contact',
@@ -48,9 +40,9 @@ module.exports = {
   ],
 
   colors: {
-    green: '#64ffda',
-    navy: '#0a192f',
-    darkNavy: '#020c1b',
+    green: '#10b981',
+    navy: '#1e293b',
+    darkNavy: '#0f172a',
   },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({

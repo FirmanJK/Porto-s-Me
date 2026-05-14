@@ -99,26 +99,31 @@ const Hero = () => {
   const one = (
     <div className="greeting-container">
       <h1 style={{ transitionDelay: '100ms' }}>Hi, my name is</h1>
-      <span className="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
     </div>
   );
 
-  const two = <h2 className="big-heading">Dwi Septa Satria Agung.</h2>;
+  const two = <h2 className="big-heading">Mochammad Firmandika Jati Kusuma</h2>;
   const three = (
     <h3 className="big-heading" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-      <span>Organizer</span>
-      <span style={{ color: 'var(--slate)' }}>&</span>
       <span>Developer</span>
+      <span style={{ color: 'var(--slate)' }}>&</span>
+      <span>Data Engineer</span>
     </h3>
   );
   const four = (
     <p>
-      I'm a <strong style={{ color: 'var(--green)' }}>Business Information Systems student</strong>{' '}
-      at Politeknik Negeri Malang and{' '}
-      <strong style={{ color: 'var(--green)' }}>experienced organizer</strong>, specializing in
-      back-end and full-stack web development. As an active freelancer and IT Project Delivery Lead,
-      I build scalable web applications while leading teams and coordinating large-scale programs
-      with 30,000+ participants.
+      I'm a developer who builds things end to end. From{' '}
+      <strong style={{ color: 'var(--green)' }}>progressive web apps</strong> and{' '}
+      <strong style={{ color: 'var(--green)' }}>Android deployments</strong> to{' '}
+      <strong style={{ color: 'var(--green)' }}>
+        machine learning-integrated mobile platforms
+      </strong>
+      , I've shipped projects that solve real problems for real institutions. With a background in
+      fullstack development and a growing focus on{' '}
+      <strong style={{ color: 'var(--green)' }}>
+        Data Engineering and Artificial Intelligence
+      </strong>
+      , I thrive at the intersection of clean code and data-driven thinking.
     </p>
   );
   const five = (

@@ -5715,7 +5715,7 @@ gatsby-plugin-react-helmet@^4.4.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-robots-txt@^1.5.6:
+gatsby-plugin-robots-txt@^1.7.1:
   version "1.8.0"
   resolved "https://registry.npmjs.org/gatsby-plugin-robots-txt/-/gatsby-plugin-robots-txt-1.8.0.tgz"
   integrity sha512-GMUIrsCPncb10wM9cuF2ZwYNN8revEolzvvizT0RzRE4NhPxsQUT4LIRE4n5IYQhbYu6oYZtfeG7YreFXmxLMw==

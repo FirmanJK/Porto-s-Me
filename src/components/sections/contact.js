@@ -75,10 +75,10 @@ const Contact = () => {
       <h2 className="numbered-heading overline">What’s Next?</h2>
       <h2 className="title">Get In Touch</h2>
       <p>
-        I'm actively seeking internship opportunities and always open to new freelance projects and
-        collaborations. Whether you need a full-stack developer for your next big project, want to
-        discuss business automation solutions, or just want to say hello, my inbox is always open.
-        Let's build something amazing together!
+        I'm actively seeking opportunities in fullstack development, data engineering, and AI/ML
+        projects. Whether you need a developer who can build end-to-end solutions, integrate machine
+        learning into mobile platforms, or architect data pipelines, I'm always open to discussing
+        new challenges. Let's build something impactful together!
       </p>
       <a className="email-link" href={`mailto:${email}`}>
         Say Hello

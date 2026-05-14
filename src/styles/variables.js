@@ -2,26 +2,26 @@ import { css } from 'styled-components';
 
 const variables = css`
   :root {
-    --dark-navy: #020c1b;
-    --navy: #0a192f;
-    --light-navy: #112240;
-    --lightest-navy: #233554;
-    --navy-shadow: rgba(2, 12, 27, 0.7);
-    --dark-slate: #495670;
-    --slate: #8892b0;
-    --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
-    --white: #e6f1ff;
-    --green: #64ffda;
-    --green-tint: rgba(100, 255, 218, 0.1);
-    --green-bright: rgba(100, 255, 218, 0.8);
-    --pink: #f57dff;
-    --blue: #57cbff;
-    --orange: #ff9557;
-    --purple: #9d7fff;
-    --gradient-1: linear-gradient(135deg, #64ffda 0%, #57cbff 100%);
-    --gradient-2: linear-gradient(135deg, #f57dff 0%, #9d7fff 100%);
-    --gradient-3: linear-gradient(135deg, #ff9557 0%, #f57dff 100%);
+    --dark-navy: #0f172a;
+    --navy: #1e293b;
+    --light-navy: #334155;
+    --lightest-navy: #475569;
+    --navy-shadow: rgba(15, 23, 42, 0.7);
+    --dark-slate: #64748b;
+    --slate: #94a3b8;
+    --light-slate: #cbd5e1;
+    --lightest-slate: #e2e8f0;
+    --white: #f1f5f9;
+    --green: #10b981;
+    --green-tint: rgba(16, 185, 129, 0.1);
+    --green-bright: rgba(16, 185, 129, 0.8);
+    --pink: #ec4899;
+    --blue: #3b82f6;
+    --orange: #f59e0b;
+    --purple: #8b5cf6;
+    --gradient-1: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    --gradient-2: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+    --gradient-3: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
 
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

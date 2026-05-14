@@ -74,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background: linear-gradient(-45deg, var(--navy), #0a192f, #112240, #0a192f);
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     color: var(--slate);
@@ -201,6 +201,18 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     font-size: clamp(26px, 5vw, var(--fz-heading));
     white-space: nowrap;
+    animation: fadeInUp 0.6s ease-out;
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     &:before {
       position: relative;
@@ -212,6 +224,7 @@ const GlobalStyle = createGlobalStyle`
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
+      text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
 
       @media (max-width: 480px) {
         margin-bottom: -3px;
@@ -227,7 +240,8 @@ const GlobalStyle = createGlobalStyle`
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background: linear-gradient(90deg, var(--green) 0%, transparent 100%);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
 
       @media (max-width: 1080px) {
         width: 200px;

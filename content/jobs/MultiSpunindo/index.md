@@ -1,13 +1,14 @@
 ---
 date: '2026-01-01'
-title: 'Full Stack Web Developer'
+title: 'IT Programmer'
 company: 'PT Multi Spunindo Jaya Tbk'
-location: 'Krian, Sidoarjo'
-range: 'January 2026 - July 2026'
+location: 'Indonesia'
+range: 'January 2026 - Present'
 url: ''
 ---
 
-- Developing an attendance system website based on Laravel and MSJ framework (a proprietary framework) for company-wide use
-- Integrated the system with fingerprint devices and implemented real-time attendance tracking features
-- Built an absence letter generator with automated letter numbering, notifications for approval processes, and calendar integration for leave management
-- Developing a shift management system for employees and creating a work schedule following the standard workday calendar
+- Assisting in the development and maintenance of web-based applications using the Laravel framework
+- Involved in system requirements analysis, database coding, and implementation
+- Performing application testing and quality assurance prior to implementation
+- Collaborating with the IT team and other departments in project development
+- Preparing and/or project progress reports

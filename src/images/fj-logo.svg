@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon -->
+  <path d="M256 32L448 144V368L256 480L64 368V144L256 32Z" 
+        stroke="#64FFDA" 
+        stroke-width="8" 
+        fill="none"
+        stroke-linejoin="round"/>
+  
+  <!-- Letter F (Bold) -->
+  <path d="M 160 180 L 160 332 M 160 180 L 240 180 M 160 250 L 220 250" 
+        stroke="#64FFDA" 
+        stroke-width="32" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+  
+  <!-- Letter J (Bold) -->
+  <path d="M 352 180 L 352 290 C 352 320 330 342 300 342 C 270 342 248 320 248 290" 
+        stroke="#64FFDA" 
+        stroke-width="32" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+</svg>

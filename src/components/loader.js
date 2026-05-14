@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import anime from 'animejs';
 import styled from 'styled-components';
-import { IconLoader } from '@components/icons';
 
 const StyledLoader = styled.div`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -19,19 +18,20 @@ const StyledLoader = styled.div`
 
   .logo-wrapper {
     width: max-content;
-    max-width: 100px;
+    max-width: 180px;
     transition: var(--transition);
     opacity: ${props => (props.isMounted ? 1 : 0)};
-    svg {
+
+    svg,
+    img {
       display: block;
       width: 100%;
-      height: 100%;
+      height: auto;
       margin: 0 auto;
-      fill: none;
       user-select: none;
-      #D {
-        opacity: 0;
-      }
+      background: transparent !important;
+      mix-blend-mode: normal;
+      filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.5));
     }
   }
 `;
@@ -46,29 +46,31 @@ const Loader = ({ finishLoading }) => {
 
     loader
       .add({
-        targets: '#logo path',
-        delay: 300,
-        duration: 1500,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
-      })
-      .add({
-        targets: '#logo #D',
-        duration: 700,
-        easing: 'easeInOutQuart',
-        opacity: 1,
-      })
-      .add({
-        targets: '#logo',
+        targets: '.logo-wrapper svg',
         delay: 500,
-        duration: 300,
+        duration: 1200,
+        easing: 'easeInOutQuart',
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        rotate: ['-180deg', '0deg'],
+      })
+      .add({
+        targets: '.logo-wrapper svg',
+        delay: 1500,
+        duration: 0,
+        easing: 'linear',
+      })
+      .add({
+        targets: '.logo-wrapper svg',
+        duration: 600,
         easing: 'easeInOutQuart',
         opacity: 0,
-        scale: 0.1,
+        scale: 0.5,
+        rotate: '180deg',
       })
       .add({
         targets: '.loader',
-        duration: 200,
+        duration: 300,
         easing: 'easeInOutQuart',
         opacity: 0,
         zIndex: -1,
@@ -86,7 +88,36 @@ const Loader = ({ finishLoading }) => {
       <Helmet bodyAttributes={{ class: `hidden` }} />
 
       <div className="logo-wrapper">
-        <IconLoader />
+        <svg
+          width="512"
+          height="512"
+          viewBox="0 0 512 512"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M256 32L448 144V368L256 480L64 368V144L256 32Z"
+            stroke="#64FFDA"
+            strokeWidth="8"
+            fill="none"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M 160 180 L 160 332 M 160 180 L 240 180 M 160 250 L 220 250"
+            stroke="#64FFDA"
+            strokeWidth="32"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+          <path
+            d="M 352 180 L 352 290 C 352 320 330 342 300 342 C 270 342 248 320 248 290"
+            stroke="#64FFDA"
+            strokeWidth="32"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+        </svg>
       </div>
     </StyledLoader>
   );

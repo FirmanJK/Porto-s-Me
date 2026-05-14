@@ -13,10 +13,26 @@ const IconLogo = () => (
           strokeLinejoin="round"
           points="39 0 0 22 0 67 39 90 78 68 78 23"
         />
-        <path
-          d="M 23 28 L 23 62 L 37 62 C 47 62 53 56 53 48 L 53 42 C 53 34 47 28 37 28 Z M 28.5 33.5 L 37 33.5 C 43 33.5 47.5 37.5 47.5 42 L 47.5 48 C 47.5 52.5 43 57.5 37 57.5 L 28.5 57.5 Z"
-          fill="currentColor"
-        />
+        <g id="FJ">
+          {/* Letter F */}
+          <path
+            d="M 18 28 L 18 62 M 18 28 L 34 28 M 18 44 L 31 44"
+            stroke="currentColor"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+          {/* Letter J */}
+          <path
+            d="M 60 28 L 60 54 C 60 58 57 62 51 62 C 45 58 42 54 42 54"
+            stroke="currentColor"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+        </g>
       </g>
     </g>
   </svg>

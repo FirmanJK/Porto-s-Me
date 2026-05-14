@@ -7,7 +7,7 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo, IconHex } from '@components/icons';
+import LogoImage from '@images/fj-logo.svg';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -80,42 +80,31 @@ const StyledNav = styled.nav`
 
     a {
       color: var(--green);
-      width: 42px;
-      height: 42px;
+      width: 50px;
+      height: 50px;
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      .hex-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        @media (prefers-reduced-motion: no-preference) {
-          transition: var(--transition);
-        }
-      }
-
-      .logo-container {
-        position: relative;
-        z-index: 1;
-        svg {
-          fill: none;
-          user-select: none;
-          @media (prefers-reduced-motion: no-preference) {
-            transition: var(--transition);
-          }
-          polygon {
-            fill: var(--navy);
-          }
-        }
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: transparent !important;
+        mix-blend-mode: normal;
+        filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.2));
+        transition: var(--transition);
       }
 
       &:hover,
       &:focus {
         outline: 0;
         transform: translate(-4px, -4px);
-        .hex-container {
-          transform: translate(4px, 3px);
+
+        img {
+          filter: drop-shadow(4px 4px 10px rgba(100, 255, 218, 0.4));
         }
       }
     }
@@ -229,21 +218,11 @@ const Nav = ({ isHome }) => {
     <div className="logo" tabIndex="-1">
       {isHome ? (
         <a href="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
-          <div className="logo-container">
-            <IconLogo />
-          </div>
+          <img src={LogoImage} alt="FJ Logo" />
         </a>
       ) : (
         <Link to="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
-          <div className="logo-container">
-            <IconLogo />
-          </div>
+          <img src={LogoImage} alt="FJ Logo" />
         </Link>
       )}
     </div>

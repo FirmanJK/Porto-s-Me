@@ -154,7 +154,7 @@ const StyledProject = styled.li`
   .project-description {
     ${({ theme }) => theme.mixins.boxShadow};
     position: relative;
-    z-index: 2;
+    z-index: 3;
     padding: 25px;
     border-radius: var(--border-radius);
     background-color: var(--light-navy);
@@ -281,6 +281,9 @@ const StyledProject = styled.li`
     position: relative;
     z-index: 1;
     transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 768px) {
       grid-column: 1 / -1;
@@ -289,31 +292,35 @@ const StyledProject = styled.li`
     }
 
     &:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 30px 60px -15px var(--navy-shadow);
+      transform: translateY(-10px);
+
+      @media (max-width: 768px) {
+        transform: none;
+      }
     }
 
     a {
       width: 100%;
-      height: 100%;
+      max-width: 280px;
       background-color: transparent;
       border-radius: var(--border-radius);
-      vertical-align: middle;
       overflow: hidden;
+      display: block;
+      box-shadow: 0 10px 30px -15px var(--navy-shadow);
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+        box-shadow: none;
+      }
     }
 
     .img {
       border-radius: var(--border-radius);
-      mix-blend-mode: normal;
-      filter: none;
       transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-      @media (max-width: 768px) {
-        object-fit: cover;
-        width: auto;
-        height: 100%;
-        filter: none;
-      }
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
   }
 `;
@@ -333,11 +340,16 @@ const Featured = () => {
                 childImageSharp {
                   gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
+                extension
+                publicURL
               }
               tech
               github
               external
               cta
+              documentation
+              documentationML
+              documentationCV
             }
             html
           }
@@ -350,6 +362,39 @@ const Featured = () => {
   const revealTitle = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
+
+  // Function to get custom image size based on project title
+  const getImageSize = title => {
+    const smallProjects = ['Marketplace Jawara', 'Talent Hub', 'Pintara Kids'];
+
+    if (title === 'Internify') {
+      return '800px';
+    } else if (title === 'Sibeta') {
+      return '600px';
+    } else if (smallProjects.includes(title)) {
+      return '280px';
+    }
+    return '280px'; // default size
+  };
+
+  // Function to get wrapper style for smaller box
+  const getWrapperStyle = title => {
+    // Internify - even (kiri), box di kiri, gambar di kanan
+    if (title === 'Internify') {
+      return {
+        maxWidth: '420px',
+        marginRight: '180px',
+      };
+    }
+    // Sibeta - odd (kanan), box di kanan, gambar di kiri
+    if (title === 'Sibeta') {
+      return {
+        maxWidth: '350px',
+        marginLeft: '180px',
+      };
+    }
+    return {};
+  };
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -370,14 +415,26 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
+            const {
+              external,
+              title,
+              tech,
+              github,
+              cover,
+              cta,
+              documentation,
+              documentationML,
+              documentationCV,
+            } = frontmatter;
             const image = getImage(cover);
+            const isGif = cover?.extension === 'gif';
             const projectUrl = external || github;
+            const isOdd = i % 2 !== 0;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
-                  <div>
+                  <div style={getWrapperStyle(title, isOdd)}>
                     <p className="project-overline">Featured Project</p>
 
                     <h3 className="project-title">
@@ -404,12 +461,47 @@ const Featured = () => {
                         </a>
                       )}
                       {github && (
-                        <a href={github} aria-label="GitHub Link">
+                        <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
                           <Icon name="GitHub" />
                         </a>
                       )}
+                      {documentation && (
+                        <a
+                          href={documentation}
+                          aria-label="Documentation Link"
+                          target="_blank"
+                          rel="noreferrer"
+                          title="Documentation">
+                          <Icon name="Folder" />
+                        </a>
+                      )}
+                      {documentationML && (
+                        <a
+                          href={documentationML}
+                          aria-label="ML Documentation"
+                          target="_blank"
+                          rel="noreferrer"
+                          title="Machine Learning Documentation">
+                          <Icon name="Folder" />
+                        </a>
+                      )}
+                      {documentationCV && (
+                        <a
+                          href={documentationCV}
+                          aria-label="CV Documentation"
+                          target="_blank"
+                          rel="noreferrer"
+                          title="Computer Vision Documentation">
+                          <Icon name="Folder" />
+                        </a>
+                      )}
                       {external && !cta && (
-                        <a href={external} aria-label="External Link" className="external">
+                        <a
+                          href={external}
+                          aria-label="External Link"
+                          className="external"
+                          target="_blank"
+                          rel="noreferrer">
                           <Icon name="External" />
                         </a>
                       )}
@@ -419,11 +511,21 @@ const Featured = () => {
 
                 <div className="project-image">
                   {projectUrl ? (
-                    <a href={projectUrl}>
-                      <GatsbyImage image={image} alt={title} className="img" />
+                    <a href={projectUrl} style={{ maxWidth: getImageSize(title) }}>
+                      {isGif ? (
+                        <img src={cover.publicURL} alt={title} className="img" />
+                      ) : (
+                        <GatsbyImage image={image} alt={title} className="img" />
+                      )}
                     </a>
+                  ) : isGif ? (
+                    <div style={{ maxWidth: getImageSize(title) }}>
+                      <img src={cover.publicURL} alt={title} className="img" />
+                    </div>
                   ) : (
-                    <GatsbyImage image={image} alt={title} className="img" />
+                    <div style={{ maxWidth: getImageSize(title) }}>
+                      <GatsbyImage image={image} alt={title} className="img" />
+                    </div>
                   )}
                 </div>
               </StyledProject>

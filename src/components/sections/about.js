@@ -147,18 +147,16 @@ const About = () => {
   }, [prefersReducedMotion]);
 
   const skills = [
-    'Laravel',
-    'PHP',
-    'React',
-    'JavaScript',
     'Python',
+    'PHP',
+    'JavaScript',
+    'Dart',
+    'HTML & CSS',
     'Node.js',
-    'MySQL',
+    'Flutter',
+    'FastAPI',
     'Bootstrap',
-    'Google Cloud Platform',
-    'Git & GitLab',
-    'Figma',
-    'Power BI',
+    'Laravel',
   ];
 
   return (
@@ -168,17 +166,14 @@ const About = () => {
       <div className="inner">
         <div>
           <p>
-            Hello! My name is Septa, and I specialize in building robust full-stack web applications
-            with a focus on back-end development and business process optimization. Currently
-            pursuing my D4 in Business Information Systems at Politeknik Negeri Malang, I've been
-            actively working as a freelancer and IT Project Delivery Lead.
+            Hello! I'm Firman, a developer who builds things end to end. From progressive web apps
+            and Android deployments to machine learning-integrated mobile platforms, I've shipped
+            projects that solve real problems for real institutions.
           </p>
           <p>
-            I've had the privilege of working with organizations like Politeknik Negeri Malang,
-            Lippo Group, Creative Tekno Persada, and PT Multi Spunindo Jaya Tbk. My work focuses on
-            translating complex business needs into efficient technical solutions—from improving
-            data efficiency by 70% for 45,000+ users to building end-to-end digital transformation
-            systems.
+            With a background in fullstack development and a growing focus on Data Engineering and
+            Artificial Intelligence, I thrive at the intersection of clean code and data-driven
+            thinking. When I'm not coding, I'm pursuing certifications to stay ahead of the curve.
           </p>
           <p>Here are a few of the core technologies I work with:</p>
           <ul className="skills-list">
@@ -190,7 +185,7 @@ const About = () => {
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="../../images/me.png"
+              src="../../images/firman.png"
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}

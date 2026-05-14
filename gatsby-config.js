@@ -2,12 +2,12 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Dwi Septa Satria Agung',
+    title: 'Mochammad Firmandika Jati Kusuma - Developer & Data Engineer',
     description:
-      'Dwi Septa Satria Agung is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
-    siteUrl: 'https://septasatria20.github.io', // No trailing slash allowed!
+      'Firman is a fullstack developer and data engineer who specializes in building end-to-end solutions, from progressive web apps to machine learning-integrated platforms.',
+    siteUrl: 'https://firmanjotab-repositories.github.io', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@_septasatria',
+    twitterUsername: '@firman',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,13 +20,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Dwi Septa Satria Agung',
-        short_name: 'Dwi Septa Satria Agung',
+        name: 'Mochammad Firmandika Jati Kusuma - Developer',
+        short_name: 'Firman',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
         display: 'minimal-ui',
-        icon: 'src/images/logo.png',
+        icon: 'src/images/fj-logo.svg',
       },
     },
     `gatsby-plugin-offline`,
