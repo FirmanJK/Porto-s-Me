@@ -152,11 +152,15 @@ const About = () => {
     'JavaScript',
     'Dart',
     'HTML & CSS',
+    'Java',
+    'React.js'
+    'Express.js'
     'Node.js',
     'Flutter',
     'FastAPI',
     'Bootstrap',
     'Laravel',
+    'MySQL',
   ];
 
   return (
