@@ -170,14 +170,22 @@ const About = () => {
       <div className="inner">
         <div>
           <p>
-            Hello! I'm Firman, a developer who builds things end to end. From progressive web apps
-            and Android deployments to machine learning-integrated mobile platforms, I've shipped
-            projects that solve real problems for real institutions.
+            Hello! I'm Firman, a developer specializing in full-stack applications with a focus on{' '}
+            <strong style={{ color: 'var(--green)' }}>Data Engineering and AI</strong>. Currently an
+            Informatics Engineering student at{' '}
+            <strong style={{ color: 'var(--green)' }}>Politeknik Negeri Malang</strong>, I have a
+            proven track record of transforming manual processes into efficient digital ecosystems
+            for institutions like{' '}
+            <strong style={{ color: 'var(--green)' }}>PT Multi Spunindo Jaya Tbk</strong>.
           </p>
           <p>
-            With a background in fullstack development and a growing focus on Data Engineering and
-            Artificial Intelligence, I thrive at the intersection of clean code and data-driven
-            thinking. When I'm not coding, I'm pursuing certifications to stay ahead of the curve.
+            As a{' '}
+            <strong style={{ color: 'var(--green)' }}>Certified Associate Data Scientist</strong>, I
+            leverage Python, SQL, and ETL workflows to build secure, data-driven systems. I am
+            passionate about integrating{' '}
+            <strong style={{ color: 'var(--green)' }}>Machine Learning and Cybersecurity</strong> to
+            develop intelligent solutions that optimize organizational efficiency and solve
+            real-world problems.
           </p>
           <p>Here are a few of the core technologies I work with:</p>
           <ul className="skills-list">
