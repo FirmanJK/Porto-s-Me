@@ -112,18 +112,17 @@ const Hero = () => {
   );
   const four = (
     <p>
-      I'm a developer who builds things end to end. From{' '}
-      <strong style={{ color: 'var(--green)' }}>progressive web apps</strong> and{' '}
-      <strong style={{ color: 'var(--green)' }}>Android deployments</strong> to{' '}
+      I'm an <strong style={{ color: 'var(--green)' }}>Informatics Engineering student</strong> at{' '}
+      <strong style={{ color: 'var(--green)' }}>Politeknik Negeri Malang</strong> and a{' '}
+      <strong style={{ color: 'var(--green)' }}>Certified Associate Data Scientist</strong>,
+      specializing in end-to-end web and mobile development. Currently bridging my expertise into{' '}
+      <strong style={{ color: 'var(--green)' }}>Data Engineering and AI</strong>, I build scalable
+      digital solutions—from{' '}
       <strong style={{ color: 'var(--green)' }}>
-        machine learning-integrated mobile platforms
-      </strong>
-      , I've shipped projects that solve real problems for real institutions. With a background in
-      fullstack development and a growing focus on{' '}
-      <strong style={{ color: 'var(--green)' }}>
-        Data Engineering and Artificial Intelligence
-      </strong>
-      , I thrive at the intersection of clean code and data-driven thinking.
+        machine learning-integrated community platforms
+      </strong>{' '}
+      to <strong style={{ color: 'var(--green)' }}>automated administrative systems</strong>—focused
+      on driving organizational efficiency through data-driven technology.
     </p>
   );
   const five = (
