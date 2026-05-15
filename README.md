@@ -5,7 +5,7 @@
   Firman JK - Developer & Data Engineer
 </h1>
 <p align="center">
-  Personal portfolio website of <a href="https://firmanjotab-repositories.github.io" target="_blank">FirmanJK</a>
+  Personal portfolio website of <a href="https://firmanjk.fun/" target="_blank">FirmanJK</a>
 </p>
 
 <p align="center">
