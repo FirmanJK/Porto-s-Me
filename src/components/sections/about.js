@@ -153,8 +153,8 @@ const About = () => {
     'Dart',
     'HTML & CSS',
     'Java',
-    'React.js'
-    'Express.js'
+    'React.js',
+    'Express.js',
     'Node.js',
     'Flutter',
     'FastAPI',
