@@ -18,7 +18,12 @@ const StyledHeroSection = styled.section`
   }
 
   @media (max-width: 768px) {
-    padding-top: 80px;
+    padding-top: 120px;
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 140px;
   }
 
   .greeting-container {
@@ -32,8 +37,11 @@ const StyledHeroSection = styled.section`
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 15px;
-      margin: 0 0 20px 2px;
-      padding-top: 20px;
+      margin: 40px 0 20px 2px;
+    }
+
+    @media (max-width: 480px) {
+      margin: 50px 0 20px 2px;
     }
   }
 
