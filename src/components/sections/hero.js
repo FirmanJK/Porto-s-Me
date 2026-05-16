@@ -20,13 +20,13 @@ const StyledHeroSection = styled.section`
   @media (max-width: 768px) {
     min-height: auto;
     height: auto;
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 90px;
+    padding-bottom: 80px;
   }
 
   @media (max-width: 480px) {
-    padding-top: 110px;
-    padding-bottom: 50px;
+    padding-top: 95px;
+    padding-bottom: 70px;
   }
 
   .greeting-container {
@@ -97,6 +97,16 @@ const StyledHeroSection = styled.section`
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
+
+    @media (max-width: 768px) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 480px) {
+      margin-top: 35px;
+      margin-bottom: 35px;
+    }
   }
 `;
 
