@@ -17,6 +17,10 @@ const StyledHeroSection = styled.section`
     padding-top: var(--nav-height);
   }
 
+  @media (max-width: 768px) {
+    padding-top: 80px;
+  }
+
   .greeting-container {
     display: flex;
     justify-content: space-between;
@@ -29,6 +33,7 @@ const StyledHeroSection = styled.section`
       flex-direction: column;
       gap: 15px;
       margin: 0 0 20px 2px;
+      padding-top: 20px;
     }
   }
 
